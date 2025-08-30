@@ -29,7 +29,6 @@ public class PostApiTest1 {
         String expectedName="Apple MacBook Pro 16";
 
         String actualName=jsonpath.getString("name");
-        System.out.println(actualName);
 
         Assertions.assertThat(actualName)
                 .as("verify name")
