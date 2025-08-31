@@ -31,7 +31,7 @@ public class PutApiTest {
         String expectedName="Apple MacBook Pro 17";
 
         Assertions.assertThat(actualName)
-                .as("verify color name")
+                .as("verify name")
                 .isEqualTo(expectedName);
 
 
