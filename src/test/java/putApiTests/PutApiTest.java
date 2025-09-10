@@ -30,6 +30,18 @@ public class PutApiTest {
         String actualName = jsonpath.getString("name");
         String expectedName = "Apple MacBook Pro 17";
 
+        Assertions.assertThat(actualName)
+                .as("verify name")
+                .isEqualTo(expectedName);
+
+        Assertions.assertThat(actualName)
+                .as("verify name")
+                .isEqualTo(expectedName);
+
+        Assertions.assertThat(actualName)
+                .as("verify name")
+                .isEqualTo(expectedName);
+        
         RestAssured.baseURI = "https://api.restful-api.dev";
 
         File payload1 = new File("src/test/resources/PutPayload.json");
@@ -78,6 +90,5 @@ public class PutApiTest {
         Assertions.assertThat(actualName)
                 .as("verify name")
                 .isEqualTo(expectedName);
-
     }
 }
