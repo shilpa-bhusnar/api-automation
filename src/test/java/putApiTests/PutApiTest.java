@@ -34,6 +34,17 @@ public class PutApiTest {
                 .as("verify name")
                 .isEqualTo(expectedName);
 
+        Assertions.assertThat(actualName)
+                .as("verify name")
+                .isEqualTo(expectedName);
+
+        Assertions.assertThat(actualName)
+                .as("verify name")
+                .isEqualTo(expectedName);
+
+        Assertions.assertThat(actualName)
+                .as("verify name")
+                .isEqualTo(expectedName);
 
     }
 }
