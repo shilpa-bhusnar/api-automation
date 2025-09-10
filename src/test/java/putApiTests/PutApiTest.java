@@ -11,12 +11,12 @@ import java.io.File;
 
 public class PutApiTest {
     @Test
-    public void verifyPutApi() {
-        RestAssured.baseURI = "https://api.restful-api.dev";
+    public void verifyPutApi(){
+        RestAssured.baseURI="https://api.restful-api.dev";
 
-        File payload = new File("src/test/resources/PutPayload.json");
+        File payload=new File("src/test/resources/PutPayload.json");
 
-        Response response = RestAssured.given()
+        Response response=RestAssured.given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
@@ -27,8 +27,8 @@ public class PutApiTest {
 
         JsonPath jsonpath = new JsonPath(response.asString());
 
-        String actualName = jsonpath.getString("name");
-        String expectedName = "Apple MacBook Pro 17";
+        String actualName=jsonpath.getString("name");
+        String expectedName="Apple MacBook Pro 17";
 
         Assertions.assertThat(actualName)
                 .as("verify name")
@@ -41,7 +41,7 @@ public class PutApiTest {
         Assertions.assertThat(actualName)
                 .as("verify name")
                 .isEqualTo(expectedName);
-        
+
         RestAssured.baseURI = "https://api.restful-api.dev";
 
         File payload1 = new File("src/test/resources/PutPayload.json");
@@ -68,12 +68,12 @@ public class PutApiTest {
     }
 
     @Test
-    public void verifyPutApi1() {
-        RestAssured.baseURI = "https://api.restful-api.dev";
+    public void verifyPutApi1(){
+        RestAssured.baseURI="https://api.restful-api.dev";
 
-        File payload = new File("src/test/resources/PutPayload.json");
+        File payload=new File("src/test/resources/PutPayload.json");
 
-        Response response = RestAssured.given()
+        Response response=RestAssured.given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
@@ -84,8 +84,33 @@ public class PutApiTest {
 
         JsonPath jsonpath = new JsonPath(response.asString());
 
-        String actualName = jsonpath.getString("name");
-        String expectedName = "Apple MacBook Pro 17";
+        String actualName=jsonpath.getString("name");
+        String expectedName="Apple MacBook Pro 17";
+
+        Assertions.assertThat(actualName)
+                .as("verify name")
+                .isEqualTo(expectedName);
+    }
+
+    @Test
+    public void verifyPutApi2(){
+        RestAssured.baseURI="https://api.restful-api.dev";
+
+        File payload=new File("src/test/resources/PutPayload.json");
+
+        Response response=RestAssured.given()
+                .contentType(ContentType.JSON)
+                .body(payload)
+                .when()
+                .put("/objects/ff8081819782e69e0198fc4ed55d764d")
+                .then()
+                .statusCode(200)
+                .extract().response();
+
+        JsonPath jsonpath = new JsonPath(response.asString());
+
+        String actualName=jsonpath.getString("name");
+        String expectedName="Apple MacBook Pro 17";
 
         Assertions.assertThat(actualName)
                 .as("verify name")
